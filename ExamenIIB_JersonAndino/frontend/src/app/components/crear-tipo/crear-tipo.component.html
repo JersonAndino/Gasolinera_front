@@ -1,0 +1,27 @@
+<div class="container">
+    <div id="content-crear" class="m-auto">
+        <div class="m-auto form">
+            <h1>{{titulo}}</h1>
+            <form #tipoForm="ngForm" (ngSubmit)="guardarTipo(tipoForm)">
+                <div>
+                    <span>Nombre: </span>
+                    <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="tipo.nombre">
+                </div>
+                <div>
+                    <span>Precio: </span>
+                    <input type="number" name="precio" #precio="ngModel" [(ngModel)]="tipo.precio_litro">
+                </div>
+                <div>
+                    <span>Imagen: </span>
+                    <span *ngIf="tipo.imagen" style="float:none;">
+                        <img src="{{url+'get-imagen/'+tipo.imagen}}" style="width:100px;" alt="">
+                    </span>
+                    <input type="file" #archivoImagen placeholder="Seleccionar imagen" (change)="imagenChangeEvent($event);">            
+                </div>
+                <div class="text-center">
+                    <input type="submit" [disabled]="!tipoForm.form.valid" class="btn btn-primary">
+                </div>        
+            </form>
+        </div>
+    </div>    
+</div>

@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div id="content-crear" class="m-auto">
+                <div class="m-auto form">
+                    <form #tipoForm="ngForm" (ngSubmit)="guardarTipo(tipoForm)">
+                        <div>
+                            <span>Nombre: </span>
+                            <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="tipo.nombre">
+                        </div>
+                        <div>
+                            <span>Precio: </span>
+                            <input type="number" name="precio" #precio="ngModel" [(ngModel)]="tipo.precio_litro">
+                        </div>
+                        <div>
+                            <span>Imagen: </span>
+                            <span *ngIf="tipo.imagen" style="float:none;">
+                                <img src="{{url+'get-imagen/'+tipo.imagen}}" style="width:100px;" alt="">
+                            </span>
+                            <input type="file" #archivoImagen placeholder="Seleccionar imagen" (change)="imagenChangeEvent($event);">            
+                        </div>
+                        <div style="width:120px" class="m-auto">
+                            <input type="submit" [disabled]="!tipoForm.form.valid" class="btn btn-primary">
+                            <button class="btn btn-danger" style="float: right;" (click)="eliminarTipoPorId()"><i class="fa-solid fa-trash"></i></button>
+                        </div>        
+                    </form>
+                </div>
+            </div>  
+           
+        </div>
+        <div class="col-md-6 col-sm-12 items">
+            <div *ngFor="let tipo of tipos" class="col-sm-12 col-md-12 col-lg-6">
+                <div class="item-box bg-dark m-auto">
+                    <a [routerLink]="['/tipos',tipo._id]">
+                        <div class="text-white">
+                            <img src="{{url+'get-imagen/'+tipo.imagen}}" *ngIf="tipo.imagen" >
+                        </div>
+                        <div class="text-white texto">
+                            <p>{{tipo.nombre}}</p>
+                            <p>$ {{tipo.precio_litro}} por litro</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

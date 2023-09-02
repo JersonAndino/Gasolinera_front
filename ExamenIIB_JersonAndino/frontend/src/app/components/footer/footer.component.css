@@ -1,0 +1,22 @@
+#footer{
+    padding: 40px 0 40px 0;
+    background-color: rgb(41, 73, 98);
+    min-height: 200px;
+}
+#footer1{
+    padding: 10px;
+}
+#footer2{
+    padding-bottom: 20px;
+}
+#footer3{
+    padding-top: 20px;
+    padding-bottom: 50px;
+    border-top: 1px solid rgb(255, 94, 0);
+}
+#footer2 a{
+    padding: 0 10px 0 0;
+}
+#footer3 a{
+    color: black;
+}

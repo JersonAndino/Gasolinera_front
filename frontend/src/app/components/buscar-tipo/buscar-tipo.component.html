@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let tipo of tipos" class="col-sm-6 col-md-4 col-lg-3">
+            <div class="item-box bg-dark m-auto">
+                <a [routerLink]="['/tipos',tipo._id]">
+                    <div class="text-white">
+                        <img src="{{url+'get-imagen/'+tipo.imagen}}" *ngIf="tipo.imagen" >
+                    </div>
+                    <div class="text-white texto">
+                        <p>{{tipo.nombre}}</p>
+                        <p>$ {{tipo.precio_litro}} por litro</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
